@@ -1,0 +1,37 @@
+{% extends 'reestr_people/base_datail.html'%}
+
+{%block title%}
+
+{%endblock%}
+
+{%block content%}
+
+<div class="description">
+    {% if object.image_of_person %}
+      <div class="media-left media-top">
+        <img src="{{object.image_of_person.url}}" class="media-object" style="width:250px ">
+      </div>
+    {%else%}
+      <div class="media-left media-top">
+        <img src="/media/images/omvoig_SI/depositphotos.jpg" class="media-object" style="width:250px">
+      </div>
+    {%endif%}
+    <h4 class="equipment"><button >{{object.fio}}</button></h4>
+    <div class="d1 border">
+    <p><b>Должность:</b> {{object.job_description}}</p>
+    <p><b>Дата трудоустройства:</b> {{object.date_settling}}</p>
+    <p><b>Основание для привлечения личного труда:</b> {{object.dogovor}}</p>
+    <p><b>Выполняемые функции, проводые исследования:</b>> {{object.responsibility}}</p>
+    <p><b>Образование:</b> {{object.education}}</p>
+    <p><b>Опыт работы:</b> {{object.experience}}</p>
+    <p><b>Дата и номер протокола аттестации, периодичность аттестации:</b> {{object.attestation_date_protocol}}</p>
+    <p><b>Сведения о повышении квалификации:</b> {{object.qualification_up}}</p>
+    <p><b>Дата утверждения должностной инструкции:</b> {{object.date_job_describ}}</p>
+    <p><b>Наименование группы:</b> {{object.group}}</p>
+    <p><b>Примечание:</b> {{object.information}}</p>
+    </div>
+    </div>
+<p>Назад в <a href="{%url 'omvoig_chromat'%}">реестр персонала</a></p>
+
+
+{%endblock%}

@@ -1,0 +1,211 @@
+{% extends 'reestrORIMP/base.html'%}
+
+
+
+{%block content%}
+{% if search_SI_ORIMP %}
+<ul>
+    {% for part in search_SI_ORIMP %}
+    {% if part.image_of_equipment %}
+    <div class="media-left media-top">
+      <img src="{{part.image_of_equipment.url}}" class="media-object" style="width:250px ">
+    </div>
+    {%else%}
+    <div class="media-left media-top">
+      <img src="/media/images/omvoig_SI/depositphotos.jpg" class="media-object" style="width:250px">
+    </div>
+    {%endif%}
+    <div class="media-body">
+        <h4 class="media-heading"><button >{{part.name_of_equipment_passport}}</button></h4> 
+         <div style="display: none;" id="hide"></div>
+         <div>
+        <a href="{%url 'orimp_SI_DATAIL' part.pk%}">Cсылка-кнопка на детальную информацию</a> 
+        <p><b>Наименование оборудования:</b> {{part.name_of_equipment}}</p>
+        <p><b>Модель, тип:</b> {{part.model_type}}</p>
+        <p><b>Номер в госреестре СИ:</b> {{part.number_gosreestr}}</p>
+        <p><b>Заводской Номер:</b> {{part.factury_number}}</p>
+        <p><b>Инвентарный номер:</b> {{part.invent_number}}</p>
+         </div>
+     </div>
+    {% endfor %}
+{% endif %}
+
+{% if search_IO_ORIMP %}
+<ul>
+    {% for part in search_IO_ORIMP %}
+    {% if part.image_of_equipment %}
+    <div class="media-left media-top">
+      <img src="{{part.image_of_equipment.url}}" class="media-object" style="width:250px ">
+    </div>
+    {%else%}
+    <div class="media-left media-top">
+      <img src="/media/images/omvoig_SI/depositphotos.jpg" class="media-object" style="width:250px">
+    </div>
+    {%endif%}
+    <div class="media-body">
+        <h4 class="media-heading"><button >{{part.name_of_equipment_passport}}</button></h4> 
+         <div style="display: none;" id="hide"></div>
+         <div>
+        <a href="{%url 'orimp_IO_DATAIL' part.pk%}">Cсылка-кнопка на детальную информацию</a> 
+        <p><b>Наименование оборудования:</b> {{part.name_of_equipment}}</p>
+        <p><b>Модель, тип:</b> {{part.model_type}}</p>
+        <p><b>Номер в госреестре СИ:</b> {{part.number_gosreestr}}</p>
+        <p><b>Заводской Номер:</b> {{part.factury_number}}</p>
+        <p><b>Инвентарный номер:</b> {{part.invent_number}}</p>
+         </div>
+     </div>
+    {% endfor %}
+{% endif %}
+
+
+{% if search_VO_ORIMP %}
+<ul>
+    {% for part in search_VO_ORIMP %}
+    {% if part.image_of_equipment %}
+    <div class="media-left media-top">
+      <img src="{{part.image_of_equipment.url}}" class="media-object" style="width:250px ">
+    </div>
+    {%else%}
+    <div class="media-left media-top">
+      <img src="/media/images/omvoig_SI/depositphotos.jpg" class="media-object" style="width:250px">
+    </div>
+    {%endif%}
+    <div class="media-body">
+        <h4 class="media-heading"><button >{{part.name_of_equipment_passport}}</button></h4> 
+         <div style="display: none;" id="hide"></div>
+         <div>
+        <a href="{%url 'orimp_VO_DATAIL' part.pk%}">Cсылка-кнопка на детальную информацию</a> 
+        <p><b>Наименование оборудования:</b> {{part.name_of_equipment}}</p>
+        <p><b>Модель, тип:</b> {{part.model_type}}</p>
+        <p><b>Номер в госреестре СИ:</b> {{part.number_gosreestr}}</p>
+        <p><b>Заводской Номер:</b> {{part.factury_number}}</p>
+        <p><b>Инвентарный номер:</b> {{part.invent_number}}</p>
+         </div>
+     </div>
+    {% endfor %}
+{% endif %}
+
+
+
+{% if search_ET_ORIMP %}
+<ul>
+    {% for part in search_ET_ORIMP %}
+    {% if part.image_of_equipment %}
+    <div class="media-left media-top">
+      <img src="{{part.image_of_equipment.url}}" class="media-object" style="width:250px ">
+    </div>
+    {%else%}
+    <div class="media-left media-top">
+      <img src="/media/images/omvoig_SI/depositphotos.jpg" class="media-object" style="width:250px">
+    </div>
+    {%endif%}
+    <div class="media-body">
+        <h4 class="media-heading"><button >{{part.name_of_equipment_passport}}</button></h4> 
+         <div style="display: none;" id="hide"></div>
+         <div>
+        <p><b>Регистрационный номер эталона:</b> {{part.reg_number}}</p>
+        <p><b>Наименование оборудования по паспорту:</b> {{part.name_of_equipment_passport}}</p>
+        <p><b>Наименование средств измерений:</b> {{part.name_of_equipment_measure}}</p>
+        <p><b>Заводской Номер:</b> {{part.factury_number}}</p>
+        <p><b>Приказ об утверждени эталонов единиц величин:</b> {{part.main_document}}</p>
+        <p><b>Примечание:</b> {{part.fact}}</p>
+        </div>
+     </div>
+    {% endfor %}
+{% endif %}
+
+
+{% if search_RET_ORIMP %}
+<ul>
+    {% for part in search_RET_ORIMP %}
+    {% if part.image_of_equipment %}
+    <div class="media-left media-top">
+      <img src="{{part.image_of_equipment.url}}" class="media-object" style="width:250px ">
+    </div>
+    {%else%}
+    <div class="media-left media-top">
+      <img src="/media/images/omvoig_SI/depositphotos.jpg" class="media-object" style="width:250px">
+    </div>
+    {%endif%}
+    <div class="media-body">
+        <h4 class="media-heading"><button >{{part.name_of_equipment_passport}}</button></h4> 
+         <div style="display: none;" id="hide"></div>
+         <div>
+        <p><b>Регистрационный номер эталона:</b> {{part.reg_number}}</p>
+        <p><b>Наименование оборудования по паспорту:</b> {{part.name_of_equipment_passport}}</p>
+        <p><b>Наименование средств измерений:</b> {{part.name_of_equipment_measure}}</p>
+        <p><b>Заводской Номер:</b> {{part.factury_number}}</p>
+        <p><b>Примечание:</b> {{part.fact}}</p>
+        <p><b>Номер электронной заявки:</b> {{part.numb_elect_zayavki}}</p>
+        <p><b>Дата следующей поверки:</b> {{part.date_next_verification}}</p>
+        <p><b>Дата аттестации элатона:</b> {{part.date_attestation_et}}</p>
+        <p><b>Наименование Государственной поверочной схемы для средств измерений:</b> {{part.scheme_of_verivication}}</p>
+        </div>
+     </div>
+    {% endfor %}
+{% endif %}
+
+
+{% if parts_SI_ORIMP %}
+    {% for parts in parts_SI_ORIMP %}
+                <div class="media-body border">
+                  {% if parts.part_image %}
+                  <div class="media-left media-top">
+                    <img src="{{parts.part_image.url}}" class="media-object" style="width:250px ">
+                  </div>
+                {%else%}
+                  <div class="media-left media-top">
+                    <img src="/media/images/omvoig_SI/depositphotos.jpg" class="media-object" style="width:250px">
+                  </div>
+                {%endif%}
+                  <p><b>Наименование запчасти:</b> {{parts.name_of_part}}</p>
+                  <p><b>Заводской номер (запчасти/расходного материала): </b>{{parts.fact_number}}</p>
+                  <p><b>Ссылка на документацию</b> {% if parts.part_docum%}<a href="{{parts.part_docum.url}}">скан-файл</a>{%endif%}</p>
+                  <p><b>Прибор:</b> {{parts.name_of_equip}}</p>
+                </div>
+      {%endfor%}
+  {% endif %}
+
+{% if parts_IO_ORIMP %}
+  {% for parts in parts_IO_ORIMP %}
+              <div class="media-body border">
+                {% if parts.part_image %}
+                <div class="media-left media-top">
+                  <img src="{{parts.part_image.url}}" class="media-object" style="width:250px ">
+                </div>
+              {%else%}
+                <div class="media-left media-top">
+                  <img src="/media/images/omvoig_SI/depositphotos.jpg" class="media-object" style="width:250px">
+                </div>
+              {%endif%}
+                <p><b>Наименование запчасти:</b> {{parts.name_of_part}}</p>
+                <p><b>Заводской номер (запчасти/расходного материала): </b>{{parts.fact_number}}</p>
+                <p><b>Ссылка на документацию</b> {% if parts.part_docum%}<a href="{{parts.part_docum.url}}">скан-файл</a>{%endif%}</p>
+                <p><b>Прибор:</b> {{parts.name_of_equip}}</p>
+              </div>
+    {%endfor%}
+{% endif %}
+
+
+{% if parts_VO_ORIMP %}
+  {% for parts in parts_VO_ORIMP %}
+              <div class="media-body border">
+                {% if parts.part_image %}
+                <div class="media-left media-top">
+                  <img src="{{parts.part_image.url}}" class="media-object" style="width:250px ">
+                </div>
+              {%else%}
+                <div class="media-left media-top">
+                  <img src="/media/images/omvoig_SI/depositphotos.jpg" class="media-object" style="width:250px">
+                </div>
+              {%endif%}
+                <p><b>Наименование запчасти:</b> {{parts.name_of_part}}</p>
+                <p><b>Заводской номер (запчасти/расходного материала): </b>{{parts.fact_number}}</p>
+                <p><b>Ссылка на документацию</b> {% if parts.part_docum%}<a href="{{parts.part_docum.url}}">скан-файл</a>{%endif%}</p>
+                <p><b>Прибор:</b> {{parts.name_of_equip}}</p>
+              </div>
+    {%endfor%}
+{% endif %}
+
+
+{%endblock%}

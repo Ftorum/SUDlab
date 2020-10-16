@@ -1,0 +1,43 @@
+{% extends 'reestrORIMP/base.html'%}
+
+{%block title%}
+Реестр оборудования ОРиМР - Реестр эталонов
+{%endblock%}
+
+{%block content%}
+
+
+{% for part in base %}
+<div class="media" id="stick">
+   {% if part.image_of_equipment %}
+      <div class="media-left media-top">
+        <img src="{{part.image_of_equipment.url}}" class="media-object" style="width:250px ">
+      </div>
+    {%else%}
+      <div class="media-left media-top">
+        <img src="/media/images/omvoig_SI/depositphotos.jpg" class="media-object" style="width:250px">
+      </div>
+    {%endif%}
+   <div class="media-body">
+      <!-- <h4 class="media-heading"> {{part.name_of_equipment}}</h4> -->
+      <h4 class="media-heading"><button >{{part.name_of_equipment_passport}}</button></h4>
+       <div style="display: none;" id="hide">
+      <p><b>Примечание:</b> {{part.fact}}</p>
+       <p><b>Номер электронной заявки:</b> {{part.numb_elect_zayavki}}</p>
+       <p><b>Дата следующей поверки:</b> {{part.date_next_verification}}</p>
+       <p><b>Дата аттестации элатона:</b> {{part.date_attestation_et}}</p>
+       <p><b>Наименование Государственной поверочной схемы для средств измерений:</b> {{part.scheme_of_verivication}}</p>
+       <p><b>Поверка СИ:</b> {{part.last_verification}} {% if part.verification_file%}<a href="{{part.verification_file.url}}">скан-файл</a>{%endif%}</p>
+       </div>
+       <div>
+        <p><b>Регистрационный номер эталона:</b> {{part.reg_number}}</p>
+        <p><b>Наименование средств измерений:</b> {{part.name_of_equipment_measure}}</p>
+        <p><b>Заводской Номер:</b> {{part.factury_number}}</p>
+       </div>
+   </div>
+</div>
+{%endfor%}   
+
+
+
+{%endblock%}

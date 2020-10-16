@@ -1,0 +1,47 @@
+{% extends 'reestr_people/base_omvs.html'%}
+
+{%block title%}
+Реестр персонала ОМВС
+{%endblock%}
+
+{%block content%}
+
+
+{% for part in base %}
+<div class="media" id="stick">
+   {% if part.image_of_person %}
+      <div class="media-left media-top">
+        <img src="{{part.image_of_person.url}}" class="media-object" style="width:250px ">
+      </div>
+    {%else%}
+      <div class="media-left media-top">
+        <img src="/media/images/omvoig_SI/depositphotos.jpg" class="media-object" style="width:250px">
+      </div>
+    {%endif%}
+   <div class="media-body">
+      <h4 class="media-heading"><button >{{part.fio}}</button></h4>
+        
+       <div style="display: none;" id="hide">
+       <a href="{%url 'omvs_personal_datail' part.pk%}">Cсылка-кнопка на детальную информацию</a> 
+       <p><b>Образование:</b> {{part.education}}</p>
+       <p><b>Практический опыт по исследованиям, испытаниям, измерениям, включенным в область аккредитации (в годах):</b> {{part.experience}}</p>
+       <p><b>Дата и номер протокола аттестации,<br>периодичность аттестации: </b> {{part.attestation_date_protocol}}</p>
+       <p><b>Программное обеспечение:</b> {{part.po}}</p>
+       <p><b>Сведения о повышении квалификации:</b> {{part.qualification_up}}</p>
+       <p><b>Дата утверждения должностной инструкции:</b> {{part.date_job_describ}}</p>
+       <p><b>Наименование группы:</b> {{part.group}}</p>
+       <p><b>Примечание:</b> {{part.information}}</p>
+       <p><b>Примечание:</b> {{part.fact}}</p>
+       </div>
+       <div>
+       <p><b>Должность:</b> {{part.job_description}}</p>
+       <p><b>Дата устройтва на работу:</b> {{part.date_settling}}</p>
+       <p><b>Основание для привлечения личного труда:</b> {{part.dogovor}}</p>
+       <p><b>Выполняемые функции, проводимые исследования, испытания, измерения:</b> {{part.responsibility}}</p>
+       </div>
+   </div>
+</div>
+{%endfor%}   
+
+
+{%endblock%}

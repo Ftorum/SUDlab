@@ -1,0 +1,68 @@
+{% extends 'reestrOMVOiG/base.html'%}
+
+{%block title%}
+
+
+{%endblock%}
+
+{%block content%}
+
+<div class="description">
+    {% if equip.image_of_equipment %}
+      <div class="media-left media-top">
+        <img src="{{equip.image_of_equipment.url}}" class="media-object" style="width:250px ">
+      </div>
+    {%else%}
+      <div class="media-left media-top">
+        <img src="/media/images/omvoig_SI/depositphotos.jpg" class="media-object" style="width:250px">
+      </div>
+    {%endif%}
+    <h4 class="equipment"><button >{{equip.name_of_equipment}}</button></h4>
+    <div class="d1 border">
+    <p><b>Модель, тип:</b> {{equip.model_type}}</p>
+    <p><b>Номер в госреестре СИ:</b> {{equip.number_gosreestr}}</p>
+    <p><b>Заводской Номер:</b> {{equip.factury_number}}</p>
+    <p><b>Инвентарный номер:</b> {{equip.invent_number}}</p>
+    <p><b>Наименование, шифр <br>эксплуатационного документа: </b> {{equip.main_document}}</p>
+    <p><b>Дата изготовления:</b> {{equip.date_manufactur}}</p>
+    <p><b>Дата ввода в эксплуатацию:</b> {{equip.date_start_usage}}</p>
+    <p><b>Программное обеспечение:</b> {{equip.po}}</p>
+    <p><b>Наименование компании производителя:</b> {{equip.company}}</p>
+    <p><b>Место нахождения (кабинет):</b> {{equip.location_lab}}</p>
+    <p><b>Условия эксплуатации:</b> {{equip.microclimate}}</p>
+    <p><b>Предел (диапазон) измерений:</b> {{equip.range_of_measure}}</p>
+    <p><b>Класс точности, погрешность:</b> {{equip.class_measure}}</p>
+    <p><b>Организация, выполнившая поверку СИ:</b> {{equip.organization_check}}</p>
+    <p><b>Переодичность поверки(мес):</b> {{equip.range_check}}</p>
+    <p><b>Поверка СИ:</b> {{equip.last_verification}} {% if equip.verification_file%}<a href="{{equip.verification_file.url}}">скан-файл</a>{%endif%}</p>
+    <p><b>Техническое обслужинание, ремонт:</b> {{equip.last_maintaince}}</p>
+    <p><b>Ответственный за эксплуатацию:</b> {{equip.responsible_for_use}}</p>
+    <p><b>Примечание:</b> {{equip.fact}}</p>
+    <p><b>Наименование оборудования:</b> {{equip.name_of_equipment}}</p>
+    <p><b>Описание типа:</b> {% if part.description_type%}<a href="{{part.description_type.url}}">Файл описание типа</a>{%endif%}</p>
+    <p><b>Методика поверки:</b> {% if part.method_file_poverka%}<a href="{{part.method_file_poverka.url}}">Файл методики поверки</a>{%endif%}</p>
+    </div>
+      {% for parts in partis%}
+      <div class="media-body border">
+        {% if parts.part_image %}
+        <div class="media-left media-top">
+          <img src="{{parts.part_image.url}}" class="media-object" style="width:250px ">
+        </div>
+      {%else%}
+        <div class="media-left media-top">
+          <img src="/media/images/omvoig_SI/depositphotos.jpg" class="media-object" style="width:250px">
+        </div>
+      {%endif%}
+        <p><b>Наименование запчасти:</b> {{parts.name_of_part}}</p>
+        <p><b>Заводской номер (запчасти/расходного материала): </b>{{parts.fact_number}}</p>
+        <p><b>Ссылка на документацию</b> {% if parts.part_docum%}<a href="{{parts.part_docum.url}}">скан-файл</a>{%endif%}</p>
+      </div>
+      {%endfor%}
+    </div>
+<p>Назад в <a href="{%url 'omvoig_SI'%}">реестр оборудования</a></p>
+
+
+{%endblock%}
+
+
+

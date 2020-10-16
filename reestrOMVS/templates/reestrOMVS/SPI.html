@@ -1,0 +1,47 @@
+{% extends 'reestrOMVS/base.html'%}
+
+{%block title%}
+Реестр оборудования ОМВС - Списанное лабораторное оборудование
+{%endblock%}
+
+{%block content%}
+
+
+{% for part in base %}
+<div class="media" id="stick">
+   {% if part.image_of_equipment %}
+      <div class="media-left media-top">
+        <img src="{{part.image_of_equipment.url}}" class="media-object" style="width:250px ">
+      </div>
+    {%else%}
+      <div class="media-left media-top">
+        <img src="/media/images/omvoig_SI/depositphotos.jpg" class="media-object" style="width:250px">
+      </div>
+    {%endif%}
+   <div class="media-body">
+      <!-- <h4 class="media-heading"> {{part.name_of_equipment}}</h4> -->
+      <h4 class="media-heading"><button >{{part.name_of_equipment}}</button></h4>
+        
+       <div style="display: none;" id="hide">
+       <p><b>Наименование, шифр <br>эксплуатационного документа: </b> {{part.main_document}}</p>
+       <p><b>Дата изготовления:</b> {{part.date_manufactur}}</p>
+       <p><b>Дата ввода в эксплуатацию:</b> {{part.date_start_usage}}</p>
+       <p><b>Дата вывода из эксплуатации:</b> {{part.date_end_usage}}</p>
+       <p><b>Наименование компании производителя:</b> {{part.company}}</p>
+       <p><b>Место нахождения (кабинет):</b> {{part.location_lab}}</p>
+       <p><b>Причина вывода из эксплуатации:</b> {{part.reason_of_out}}{% if part.proof_file%}<a href="{{part.proof_file.url}}">скан-файл</a>{%endif%}</p>
+       <p><b>Примечание:</b> {{part.fact}}</p>
+       </div>
+       <div>
+       <p><b>Наименование оборудования:</b> {{part.name_of_equipment}}</p>
+       <p><b>Модель, тип:</b> {{part.model_type}}</p>
+       <p><b>Заводской Номер:</b> {{part.factury_number}}</p>
+       <p><b>Инвентарный номер:</b> {{part.invent_number}}</p>
+       </div>
+   </div>
+</div>
+{%endfor%}   
+
+
+
+{%endblock%}

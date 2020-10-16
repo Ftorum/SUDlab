@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'reestrOMVOiG/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'reestrOMVOiG/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'reestrOMVOiG/css/simple-sidebar.css' %}">
+    <title>{%block title%}Система управления лабораторией{%endblock%}</title>
+</head>
+<body>
+    <header>
+    <nav class="navbar navbar-expand navbar-dark bg-dark">
+        <a class="navbar-brand" href="{% url 'omvoig_SI'%}">Реестр оборудования</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarsExample02">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'omvoig_SI'%}">ОМВОиГ<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'ohti_SI'%}">ОХТИ</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'omvs_SI'%}">ОМВС</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="{% url 'omff_SI'%}">ОМФФ</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'orimp_SI'%}">ОРиМР</a>
+              </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0" action="{% url 'search' %}" >
+            <input class="form-control mr-sm-2" type="text" placeholder="поиск" aria-label="Search" name="q">
+            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Найти</button>
+          </form>
+        </div>
+      </nav>
+    </header>
+
+    <div class="d-flex">
+        <!-- Sidebar -->
+        <div class="bg-light border-right" id="sidebar-wrapper">
+        <!-- <div class="sidebar-heading">Start Bootstrap </div> -->
+        <div class="list-group list-group-flush">
+            <a href="{% url 'omvoig_SI'%}" class="list-group-item list-group-item-action bg-light">Средства измерений</a>
+            <a href="{% url 'omvoig_IO'%}" class="list-group-item list-group-item-action bg-light">Испытательное обудование</a>
+            <a href="{% url 'omvoig_VO'%}" class="list-group-item list-group-item-action bg-light">Вспомогательное оборудование</a>
+            <a href="{% url 'omvoig_SM'%}" class="list-group-item list-group-item-action bg-light">Стеклянная мера</a>
+            <a href="{% url 'omvoig_OP'%}" class="list-group-item list-group-item-action bg-light">Оборудование для отбора проб</a>
+            <a href="{% url 'omvoig_VOA'%}" class="list-group-item list-group-item-action bg-light">Оборудование вне ОА</a>
+            <a href="{% url 'omvoig_VU'%}" class="list-group-item list-group-item-action bg-light">Выведено из эксплуатации</a>
+            <a href="{% url 'omvoig_SPI'%}" class="list-group-item list-group-item-action bg-light">Списанное ЛО</a>
+        </div>
+        </div>
+        <!-- Workspace -->
+        <div class="workspace">
+          {%block content%}
+          {%endblock%}
+        </div>
+        </div>
+    
+    
+
+        <script src="{% static 'reestrOMVOiG/js/jquery-3.5.1.min.js' %}"></script>
+        <script src="{% static 'reestrOMVOiG/js/bootstrap.js' %}"></script>
+        <script src="{% static 'reestrOMVOiG/js/main.js' %}"></script>
+
+</body>
+</html>

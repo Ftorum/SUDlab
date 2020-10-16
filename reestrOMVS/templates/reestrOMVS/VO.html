@@ -1,0 +1,53 @@
+{% extends 'reestrOMVS/base.html'%}
+
+{%block title%}
+Реестр оборудования ОМВС - Вспомогательное оборудование
+{%endblock%}
+
+{%block content%}
+
+
+{% for part in base %}
+<div class="media" id="stick">
+  {% if part.image_of_equipment %}
+     <div class="media-left media-top">
+       <img src="{{part.image_of_equipment.url}}" class="media-object" style="width:250px ">
+     </div>
+   {%else%}
+     <div class="media-left media-top">
+       <img src="/media/images/omvoig_SI/depositphotos.jpg" class="media-object" style="width:250px">
+     </div>
+   {%endif%}
+  <div class="media-body">
+     <!-- <h4 class="media-heading"> {{part.name_of_equipment}}</h4> -->
+     <h4 class="media-heading"><button >{{part.name_of_equipment}}</button></h4>
+       
+      <div style="display: none;" id="hide">
+      <a href="{%url 'omvs_VO_DATAIL' part.pk%}">Cсылка-кнопка на детальную информацию</a> 
+      <p><b>Наименование, шифр <br>эксплуатационного документа: </b> {{part.main_document}}</p>
+      <p><b>Дата изготовления:</b> {{part.date_manufactur}}</p>
+      <p><b>Дата ввода в эксплуатацию:</b> {{part.date_start_usage}}</p>
+      <p><b>Программное обеспечение:</b> {{part.po}}</p>
+      <p><b>Наименование компании производителя:</b> {{part.company}}</p>
+      <p><b>Паспорт по 174-2011 (дата утверждения):</b> {{part.pasport_cto}}</p>
+      <p><b>Место нахождения (кабинет):</b> {{part.location_lab}}</p>
+      <p><b>Условия эксплуатации:</b> {{part.microclimate}}</p>
+      <p><b>Техническое обслужинание, ремонт:</b> {{part.last_maintaince}}</p>
+      <p><b>Ответственный за эксплуатацию:</b><a href="{%url 'omvs_personal_datail' part.responsible_for_use.pk%}">{{part.responsible_for_use}}</a></p>
+      <p><b>Примечание:</b> {{part.fact}}</p>
+      <p><b>Описание типа:</b> {% if part.description_type%}<a href="{{part.description_type.url}}">Файл описание типа</a>{%endif%}</p>
+      <p><b>Методика поверки:</b> {% if part.method_file_poverka%}<a href="{{part.method_file_poverka.url}}">Файл методики поверки</a>{%endif%}</p>
+      </div>
+      <div>
+      <p><b>Наименование оборудования:</b> {{part.name_of_equipment}}</p>
+      <p><b>Модель, тип:</b> {{part.model_type}}</p>
+      <p><b>Заводской Номер:</b> {{part.factury_number}}</p>
+      <p><b>Инвентарный номер:</b> {{part.invent_number}}</p>
+      </div>
+  </div>
+</div>
+
+
+{%endfor%}  
+
+{%endblock%}

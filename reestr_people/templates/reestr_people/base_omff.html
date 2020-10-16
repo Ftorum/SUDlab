@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'reestr_people/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'reestr_people/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'reestr_people/css/simple-sidebar.css' %}">
+    <title>{%block title%}Система управления лабораторией{%endblock%}</title>
+</head>
+<body>
+    <header>
+    <nav class="navbar navbar-expand navbar-dark bg-dark">
+        <a class="navbar-brand" href="{% url 'omvoig_chromat'%}">Реестр персонала</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarsExample02">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item ">
+              <a class="nav-link" href="{% url 'omvoig_chromat'%}">ОМВОиГ</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'ohti_v_otdele'%}">ОХТИ</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'omvs_air_control'%}">ОМВС</a>
+            </li>
+            <li class="nav-item active">
+            <a class="nav-link" href="{% url 'omff_rad_control'%}">ОМФФ<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="{% url 'omoir_v_otdele'%}">ОМОиР<span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link" href="{% url 'orimp_v_otdele'%}">ОРиМР<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item ">
+                  <a class="nav-link" href="{% url 'po_v_otdele'%}">ПО<span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item ">
+                    <a class="nav-link" href="{% url 'ruk_v_otdele'%}">Руководство<span class="sr-only">(current)</span></a>
+                    </li>
+          </ul>
+
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="поиск" aria-label="Search">
+            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Найти</button>
+          </form>
+        </div>
+      </nav>
+    </header>
+
+    <div class="d-flex">
+        <!-- Sidebar -->
+        <div class="bg-light border-right" id="sidebar-wrapper">
+        <!-- <div class="sidebar-heading">Start Bootstrap </div> -->
+        <div class="list-group list-group-flush">
+            <a href="{% url 'omff_rad_control'%}" class="list-group-item list-group-item-action bg-light">Группа радиационного контроля</a>
+            <a href="{% url 'omff_v_otdele'%}" class="list-group-item list-group-item-action bg-light">В отделе</a>
+        </div>
+        </div>
+        <!-- Workspace -->
+        <div class="workspace">
+          {%block content%}
+          {%endblock%}
+        </div>
+        </div>
+    
+    
+
+        <script src="{% static 'reestr_people/js/jquery-3.5.1.min.js' %}"></script>
+        <script src="{% static 'reestr_people/js/bootstrap.js' %}"></script>
+        <script src="{% static 'reestr_people/js/main.js' %}"></script>
+
+</body>
+</html>
